@@ -1,0 +1,15 @@
+ignoreHelmHooks: true
+operator: []
+namespaces:
+  - will-ci-cd
+argocd_cr:
+  initialRepositories: |
+    - url: https://gitlab-ce.apps.tl500-cwl.ls-ap.ole.redhat.com/will/tech-exercise.git
+      type: git
+      passwordSecret:
+        key: password
+        name: git-auth
+      usernameSecret:
+        key: username
+        name: git-auth
+      insecure: true
