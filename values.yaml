@@ -1,7 +1,7 @@
 # change source and team
 # source: https://github.com/rht-labs/tech-exercise.git
-source: https://<GIT_SERVER>/<TEAM_NAME>/tech-exercise.git
-team: <TEAM_NAME>
+source: https://gitlab-ce.apps.tl500-cwl.ls-ap.ole.redhat.com/will/tech-exercise.git
+team: will
 release: ci-cd
 
 applications:
