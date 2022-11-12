@@ -109,6 +109,16 @@ applications:
 
 
   # Tekton Pipelines
+  - name: tekton-pipeline
+    enabled: true
+    source: "https://gitlab-ce.apps.tl500-cwl.ls-ap.ole.redhat.com/will/tech-exercise.git"
+    source_ref: main
+    source_path: tekton
+    values:
+      team: will
+      cluster_domain: apps.tl500-cwl.ls-ap.ole.redhat.com
+      git_server: gitlab-ce.apps.tl500-cwl.ls-ap.ole.redhat.com
+
 
 
   # Sonarqube
