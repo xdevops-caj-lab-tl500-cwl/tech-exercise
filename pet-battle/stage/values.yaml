@@ -25,6 +25,7 @@ applications:
       image_version: latest # container image version
       hpa:
         enabled: false
+      servicemonitor: true
   pet-battle:
     name: pet-battle
     enabled: true
