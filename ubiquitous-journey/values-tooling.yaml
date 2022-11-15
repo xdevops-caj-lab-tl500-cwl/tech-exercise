@@ -174,3 +174,9 @@ applications:
 
 
   # Matomo
+  - name: matomo
+    enabled: true
+    source: https://petbattle.github.io/helm-charts
+    chart_name: matomo
+    source_ref: "4.1.1+01"
+
