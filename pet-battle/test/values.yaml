@@ -41,3 +41,53 @@ applications:
       config_map: '{ "catsUrl": "https://pet-battle-api-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com", "tournamentsUrl": "https://pet-battle-tournament-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com", "matomoUrl": "https://matomo-will-ci-cd.apps.tl500-cwl.ls-ap.ole.redhat.com/", "keycloak": { "url": "https://keycloak-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com/auth/", "realm": "pbrealm", "clientId": "pbclient", "redirectUri": "http://localhost:4200/tournament", "enableLogging": true } }'
       image_namespace: will-test
       image_repository: image-registry.openshift-image-registry.svc:5000
+  # Pet Battle UI Blue
+  blue-pet-battle:
+    name: blue-pet-battle
+    enabled: true
+    source: http://nexus:8081/repository/helm-charts
+    chart_name: pet-battle
+    source_ref: 1.0.7 # helm chart version - may need adjusting!
+    values:
+      image_version: latest # container image version - may need adjusting!
+      fullnameOverride: blue-pet-battle
+      blue_green: active
+      # we controll the prod route via the "blue" chart for simplicity
+      prod_route: true
+      prod_route_svc_name: blue-pet-battle
+      config_map: '{
+        "catsUrl": "https://pet-battle-api-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com",
+        "tournamentsUrl": "https://pet-battle-tournament-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com",
+        "matomoUrl": "https://matomo-will-ci-cd.apps.tl500-cwl.ls-ap.ole.redhat.com/",
+        "keycloak": {
+          "url": "https://keycloak-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com/auth/",
+          "realm": "pbrealm",
+          "clientId": "pbclient",
+          "redirectUri": "http://localhost:4200/tournament",
+          "enableLogging": true
+        }
+      }'
+
+  # Pet Battle UI Green
+  green-pet-battle:
+    name: green-pet-battle
+    enabled: true
+    source: http://nexus:8081/repository/helm-charts
+    chart_name: pet-battle
+    source_ref: 1.0.7 # helm chart version - may need adjusting!
+    values:
+      image_version: latest # container image version - may need adjusting!
+      fullnameOverride: green-pet-battle
+      blue_green: inactive
+      config_map: '{
+        "catsUrl": "https://pet-battle-api-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com",
+        "tournamentsUrl": "https://pet-battle-tournament-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com",
+        "matomoUrl": "https://matomo-will-ci-cd.apps.tl500-cwl.ls-ap.ole.redhat.com/",
+         "keycloak": {
+          "url": "https://keycloak-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com/auth/",
+          "realm": "pbrealm",
+          "clientId": "pbclient",
+          "redirectUri": "http://localhost:4200/tournament",
+          "enableLogging": true
+        }
+      }'
