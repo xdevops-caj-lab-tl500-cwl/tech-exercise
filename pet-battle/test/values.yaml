@@ -24,7 +24,9 @@ applications:
       image_name: pet-battle-api
       image_version: 1.3.2 # container image version
       hpa:
-        enabled: false
+        enabled: true
+        cpuTarget: 200m
+        memTarget: 300Mi
       servicemonitor: true
       image_repository: image-registry.openshift-image-registry.svc:5000
       image_namespace: will-test
