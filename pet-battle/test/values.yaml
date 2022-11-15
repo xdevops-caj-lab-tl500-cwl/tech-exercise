@@ -49,7 +49,7 @@ applications:
     chart_name: pet-battle
     source_ref: 1.0.7 # helm chart version - may need adjusting!
     values:
-      image_version: latest # container image version - may need adjusting!
+      image_version: 1.2.0 # container image version - may need adjusting!
       fullnameOverride: blue-pet-battle
       blue_green: active
       # we controll the prod route via the "blue" chart for simplicity
@@ -76,7 +76,7 @@ applications:
     chart_name: pet-battle
     source_ref: 1.0.7 # helm chart version - may need adjusting!
     values:
-      image_version: latest # container image version - may need adjusting!
+      image_version: 1.2.0 # container image version - may need adjusting!
       fullnameOverride: green-pet-battle
       blue_green: inactive
       config_map: '{
