@@ -37,7 +37,7 @@ applications:
     chart_name: pet-battle
     source_ref: 1.0.7 # helm chart version
     values:
-      image_version: 1.2.1 # container image version
+      image_version: 1.2.2 # container image version
       config_map: '{ "catsUrl": "https://pet-battle-api-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com", "tournamentsUrl": "https://pet-battle-tournament-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com", "matomoUrl": "https://matomo-will-ci-cd.apps.tl500-cwl.ls-ap.ole.redhat.com/", "keycloak": { "url": "https://keycloak-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com/auth/", "realm": "pbrealm", "clientId": "pbclient", "redirectUri": "http://localhost:4200/tournament", "enableLogging": true } }'
       image_namespace: will-test
       image_repository: image-registry.openshift-image-registry.svc:5000
@@ -83,15 +83,4 @@ applications:
       image_version: 1.2.1
       fullnameOverride: pet-battle-b
       route: false
-      config_map: '{
-        "catsUrl": "https://pet-battle-api-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com",
-        "tournamentsUrl": "https://pet-battle-tournament-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com",
-        "matomoUrl": "https://matomo-will-ci-cd.apps.tl500-cwl.ls-ap.ole.redhat.com/",
-        "keycloak": {
-          "url": "https://keycloak-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com/auth/",
-          "realm": "pbrealm",
-          "clientId": "pbclient",
-          "redirectUri": "http://localhost:4200/tournament",
-          "enableLogging": true
-        }
-      }'
+      config_map: '{ "catsUrl": "https://pet-battle-api-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com", "tournamentsUrl": "https://pet-battle-tournament-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com", "matomoUrl": "https://matomo-will-ci-cd.apps.tl500-cwl.ls-ap.ole.redhat.com/", "keycloak": { "url": "https://keycloak-will-test.apps.tl500-cwl.ls-ap.ole.redhat.com/auth/", "realm": "pbrealm", "clientId": "pbclient", "redirectUri": "http://localhost:4200/tournament", "enableLogging": true } }'
