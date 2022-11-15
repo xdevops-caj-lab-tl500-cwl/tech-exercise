@@ -43,7 +43,7 @@ applications:
       image_repository: image-registry.openshift-image-registry.svc:5000
       a_b_deploy:
         a_weight: 100
-        b_weight: 100
+        b_weight: 0
         svc_name: pet-battle-b
   # Pet Battle UI Blue
   blue-pet-battle:
