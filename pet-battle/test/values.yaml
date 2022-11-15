@@ -42,8 +42,8 @@ applications:
       image_namespace: will-test
       image_repository: image-registry.openshift-image-registry.svc:5000
       a_b_deploy:
-        a_weight: 20
-        b_weight: 80
+        a_weight: 100
+        b_weight: 100
         svc_name: pet-battle-b
   # Pet Battle UI Blue
   blue-pet-battle:
